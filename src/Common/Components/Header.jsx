@@ -11,7 +11,14 @@ function Header() {
     const [dropdownStatus, setDropdownStatus] = useState(false)
     const [token, setToken] = useState("")
     const [uname, setuname] = useState("{}")
-     
+     const handleLogout = () => {
+  sessionStorage.clear();
+
+  // optional
+  localStorage.clear();
+
+  navigate("/login");
+};
     useEffect(() => {
         if (sessionStorage.getItem("token")) {
             const tok = sessionStorage.getItem("token")
@@ -47,7 +54,7 @@ function Header() {
                                     <div className='absolue right-0 z-10 mt-2 w-40 orgin-top-right rounded-md bg-white shadow-lg' >
                                         <div className='py-1' >
                                             <Link to={"/profile"} className='block px-4 py-2 text-sm text-gray-700' >profile</Link>
-                                           <button className='block px-4 py-2 text-sm text-gray-700' >  <Link to="/login" > Logout</Link></button>
+                                           <button type='button' onClick={handleLogout} className='block px-4 py-2 text-sm text-gray-700' >   Logout </button>
                                         </div>
 
                                     </div>
