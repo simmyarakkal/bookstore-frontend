@@ -1,15 +1,16 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
-
+import { Link, Navigate, useNavigate } from 'react-router-dom'
 function AdminHeader() {
+ const navigate = useNavigate()
+
       const handleLogout = () => {
-  sessionStorage.clear();
+  sessionStorage.clear()
 
   // optional
-  localStorage.clear();
+  localStorage.clear()
 
-  navigate("/login");
-};
+  navigate("/login")
+}
   return (
     
    <>

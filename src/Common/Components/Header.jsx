@@ -3,22 +3,19 @@ import { TiSocialTwitter } from "react-icons/ti";
 import { FaFacebookF } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa";
 import { GiHamburgerMenu } from "react-icons/gi";
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 function Header() {
+ const navigate = useNavigate()
 
     const [listStatus, setListStatus] = useState(false)
     const [dropdownStatus, setDropdownStatus] = useState(false)
     const [token, setToken] = useState("")
     const [uname, setuname] = useState("{}")
-     const handleLogout = () => {
-  sessionStorage.clear();
-
-  // optional
-  localStorage.clear();
-
-  navigate("/login");
-};
+  const handleLogout = () => {
+    sessionStorage.clear()
+    navigate('/login')
+  }
     useEffect(() => {
         if (sessionStorage.getItem("token")) {
             const tok = sessionStorage.getItem("token")
